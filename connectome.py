@@ -21,7 +21,7 @@ parser.add_argument('-v', '--verbose', action='count', default=0)
 disembodied = parser.parse_args().disembodied
 verbosity = parser.parse_args().verbose
 
-print "Running on Robot: " + str(not disembodied)
+print("Running on Robot: " + str(not disembodied))
 
 if not disembodied:
         from gopigo import fwd, bwd, left_rot, right_rot, stop, set_speed, us_dist, volt
@@ -4832,8 +4832,8 @@ def motorcontrol():
         elif new_speed < 75:
                 new_speed = 75
         if verbosity > 1:
-                print "Left: ", accumleft, "Right:", accumright, "Speed: ", new_speed
-        
+                print("Left: ", accumleft, "Right:", accumright, "Speed: ", new_speed)
+
         if not disembodied:
                 set_speed(new_speed)
                 if accumleft == 0 and accumright == 0:
@@ -4922,7 +4922,7 @@ dist=0
 
 if not disembodied:
         set_speed(120)
-        print "Voltage: ", volt()
+        print("Voltage: ", volt())
 
 tfood = 0
 
@@ -4944,7 +4944,7 @@ def main():
                 # function, called inside each loop.
                 if dist>0 and dist<30:
                         if verbosity > 0:
-                                print "OBSTACLE (Nose Touch)", dist 
+                                print("OBSTACLE (Nose Touch)", dist)
                         dendriteAccumulate("FLPR")
                         dendriteAccumulate("FLPL")
                         dendriteAccumulate("ASHL")
@@ -4959,7 +4959,7 @@ def main():
                 else:
                         if tfood < 2:
                                 if verbosity > 0:
-                                        print "FOOD"
+                                        print("FOOD")
                                 dendriteAccumulate("ADFL")
                                 dendriteAccumulate("ADFR")
                                 dendriteAccumulate("ASGR")
@@ -4980,7 +4980,7 @@ def keyboard_interrupt_handler(a, b):
         if not disembodied:
                 stop()
 
-        print "Ctrl+C detected. Program Stopped!"
+        print("Ctrl+C detected. Program Stopped!")
         for pscheck in postSynaptic:
                 print (pscheck,' ',postSynaptic[pscheck][0],' ',postSynaptic[pscheck][1])
 

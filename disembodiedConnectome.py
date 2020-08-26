@@ -4805,9 +4805,11 @@ def motorcontrol():
                    accumleft += postSynaptic[muscle][nextState]
                    #accumleft = accumleft + postSynaptic[muscle][thisState] #what???  For some reason, thisState weight is always 0.
                    #postSynaptic[muscle][thisState] = 0
-                   print muscle, "Before", postSynaptic[muscle][thisState], accumleft                #Both states have to be set to 0 once the muscle is fired, or
+                   print(muscle, "Before", postSynaptic[muscle][thisState],
+                         accumleft)  # Both states have to be set to 0 once the muscle is fired, or
                    postSynaptic[muscle][nextState] = 0
-                   print muscle, "After", postSynaptic[muscle][thisState], accumleft                   # it will keep returning beyond the threshold within one iteration.
+                   print(muscle, "After", postSynaptic[muscle][thisState],
+                         accumleft)  # it will keep returning beyond the threshold within one iteration.
                 elif muscle in mRight:
                    accumright += postSynaptic[muscle][nextState]
                    #accumleft = accumright + postSynaptic[muscle][thisState] #what???
@@ -4820,7 +4822,7 @@ def motorcontrol():
                 new_speed = 150
         elif new_speed < 75:
                 new_speed = 75
-        print "Left: ", accumleft, "Right:", accumright, "Speed: ", new_speed
+        print("Left: ", accumleft, "Right:", accumright, "Speed: ", new_speed)
         accumleft = 0
         accumright = 0
         ## Start Commented section
@@ -4907,7 +4909,7 @@ def runconnectome():
 createpostSynaptic()
 dist=0
 #set_speed(120)
-print "Voltage: "#, volt()
+print("Voltage: ")  # , volt()
 tfood = 0
 try:
 ### Here is where you would put in a method to stimulate the neurons ###
@@ -4922,7 +4924,7 @@ try:
      #Do we need to switch states at the end of each loop? No, this is done inside the runconnectome()
         #function, called inside each loop.
         if dist>0 and dist<30:
-            print "OBSTACLE (Nose Touch)", dist 
+            print("OBSTACLE (Nose Touch)", dist)
             dendriteAccumulate("FLPR")
             dendriteAccumulate("FLPL")
             dendriteAccumulate("ASHL")
@@ -4936,7 +4938,7 @@ try:
             runconnectome()
         else:
             if tfood < 2:
-                    print "FOOD"
+                    print("FOOD")
                     dendriteAccumulate("ADFL")
                     dendriteAccumulate("ADFR")
                     dendriteAccumulate("ASGR")
@@ -4956,7 +4958,7 @@ except KeyboardInterrupt:
     ## Start Comment
     #stop()
     ## End Comment
-    print "Ctrl+C detected. Program Stopped!"
+    print("Ctrl+C detected. Program Stopped!")
     for pscheck in postSynaptic:
         print (pscheck,' ',postSynaptic[pscheck][0],' ',postSynaptic[pscheck][1])
 

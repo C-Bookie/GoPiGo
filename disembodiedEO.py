@@ -4822,7 +4822,7 @@ def motorcontrol():
                 new_speed = 150
         elif new_speed < 75:
                 new_speed = 75
-        print "Left: ", accumleft, "Right:", accumright, "Speed: ", new_speed
+        print("Left: ", accumleft, "Right:", accumright, "Speed: ", new_speed)
         ## Start Commented section
         # set_speed(new_speed)
         # if accumleft == 0 and accumright == 0:
@@ -4917,7 +4917,7 @@ try:
         #Do we need to switch states at the end of each loop? No, this is done inside the runconnectome()
         #function, called inside each loop.
         if dist>0 and dist<30:
-            print "OBSTACLE (Nose Touch)", dist 
+            print("OBSTACLE (Nose Touch)", dist)
             dendriteAccumulate("FLPR")
             dendriteAccumulate("FLPL")
             dendriteAccumulate("ASHL")
@@ -4931,7 +4931,7 @@ try:
             runconnectome()
         else:
             if tfood < 2:
-                    print "FOOD"
+                    print("FOOD")
                     print (thisState)
                     dendriteAccumulate("ADFL")
                     dendriteAccumulate("ADFR")
@@ -4953,6 +4953,6 @@ except KeyboardInterrupt:
     ## Start Comment
     #stop()
     ## End Comment
-    print "Ctrl+C detected. Program Stopped!"
+    print("Ctrl+C detected. Program Stopped!")
     for pscheck in postsynaptic:
         print (pscheck,' ',postsynaptic[pscheck][0],' ',postsynaptic[pscheck][1])
